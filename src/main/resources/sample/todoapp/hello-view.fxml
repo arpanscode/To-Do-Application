@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox fx:id="vbox_root" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.todoapp.HelloController">
+   <children>
+      <TabPane fx:id="tab_pane" prefHeight="400.0" prefWidth="900.0" tabClosingPolicy="UNAVAILABLE" tabMaxHeight="400.0" tabMaxWidth="800.0" tabMinWidth="100.0">
+          <Tab id="home_tab" fx:id="home_tab" text="Home">
+              <VBox prefHeight="200.0" prefWidth="100.0">
+               <ToolBar prefHeight="40.0" prefWidth="200.0" styleClass="toolbar">
+                  <items>
+                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="File Path" />
+                         <TextField fx:id="filepath" prefHeight="27.0" prefWidth="408.0">
+                             <padding>
+                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                             </padding>
+                         </TextField>
+                     <ImageView fx:id="browseIcon" fitHeight="20.0" fitWidth="20.0" onMouseClicked="#onBrowse" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../../browse.png" />
+                        </image>
+                     </ImageView>
+                     <Pane prefHeight="30.0" prefWidth="53.0" />
+                         <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#onUpload" styleClass="button" text="Upload">
+                             <padding>
+                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                             </padding>
+                        <graphic>
+                           <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                                 <Image url="@../../upload.png" />
+                              </image>
+                           </ImageView>
+                        </graphic>
+                         </Button>
+                     <Pane prefHeight="2.0" prefWidth="10.0" />
+                     <Button fx:id="exportbtn" alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#onExport" styleClass="button" text="Export">
+                        <padding>
+                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        </padding>
+                        <graphic>
+                           <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                                 <Image url="@../../save.png" />
+                              </image>
+                           </ImageView>
+                        </graphic>
+                     </Button>
+                     <Pane prefHeight="2.0" prefWidth="10.0" />
+                     <Button alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#onTemplateDownload" styleClass="button" text="Template">
+                        <padding>
+                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        </padding>
+                        <graphic>
+                           <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                                 <Image url="@../../download.png" />
+                              </image>
+                           </ImageView>
+                        </graphic>
+                     </Button>
+                  </items>
+                  <opaqueInsets>
+                     <Insets />
+                  </opaqueInsets>
+                  <VBox.margin>
+                     <Insets />
+                  </VBox.margin>
+               </ToolBar>
+               <ToolBar prefHeight="20.0" prefWidth="200.0" styleClass="toolbar">
+                  <items>
+                     <Button fx:id="upbtn" mnemonicParsing="false" onAction="#moveUp">
+                        <graphic>
+                           <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                                 <Image url="@../../up.png" />
+                              </image>
+                           </ImageView>
+                        </graphic>
+                     </Button>
+                     <Button fx:id="downbtn" mnemonicParsing="false" onAction="#moveDown">
+                        <graphic>
+                           <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                                 <Image url="@../../down.png" />
+                              </image>
+                           </ImageView>
+                        </graphic>
+                     </Button>
+                     <Pane prefHeight="27.0" prefWidth="82.0" />
+                     <ToggleButton fx:id="fltrbtn" mnemonicParsing="false" onAction="#FilterToggle">
+                        <graphic>
+                           <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                                 <Image url="@../../filter.png" />
+                              </image>
+                           </ImageView>
+                        </graphic>
+                     </ToggleButton>
+                     <Label text="Category">
+                        <font>
+                           <Font name="System Bold" size="12.0" />
+                        </font>
+                     </Label>
+                     <ComboBox fx:id="catfltr" onAction="#onFilter" prefHeight="27.0" prefWidth="100.0">
+                        <padding>
+                           <Insets left="15.0" />
+                        </padding>
+                     </ComboBox>
+                     <Pane prefHeight="27.0" prefWidth="15.0" />
+                     <Label text="Status">
+                        <font>
+                           <Font name="System Bold" size="12.0" />
+                        </font>
+                     </Label>
+                     <ComboBox fx:id="statfltr" onAction="#onFilter" prefHeight="27.0" prefWidth="100.0">
+                        <padding>
+                           <Insets left="15.0" />
+                        </padding>
+                     </ComboBox>
+                     <Pane prefHeight="27.0" prefWidth="177.0" />
+                     <Button fx:id="addbtn" mnemonicParsing="false" onAction="#addRow">
+                        <graphic>
+                           <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                                 <Image url="@../../add.png" />
+                              </image>
+                           </ImageView>
+                        </graphic>
+                     </Button>
+                     <ToggleButton fx:id="editbtn" mnemonicParsing="false" onAction="#editRow">
+                        <graphic>
+                           <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                                 <Image url="@../../edit.png" />
+                              </image>
+                           </ImageView>
+                        </graphic>
+                     </ToggleButton>
+                     <Button fx:id="delbtn" mnemonicParsing="false" onAction="#deleteRow">
+                        <graphic>
+                           <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                                 <Image url="@../../delete.png" />
+                              </image>
+                           </ImageView>
+                        </graphic>
+                     </Button>
+                  </items>
+                  <opaqueInsets>
+                     <Insets />
+                  </opaqueInsets>
+               </ToolBar>
+                  <TableView fx:id="table" prefHeight="400.0" prefWidth="900.0" VBox.vgrow="ALWAYS">
+                      <columns>
+                          <TableColumn fx:id="category" prefWidth="75.0" text="Category" />
+                          <TableColumn fx:id="description" text="Description" />
+                          <TableColumn fx:id="status" prefWidth="150.0" text="Status" />
+                      </columns>
+                  </TableView>
+              </VBox>
+          </Tab>
+          <Tab fx:id="priority_tab" text="Prioritizer">
+            <content>
+               <VBox prefHeight="200.0" prefWidth="100.0">
+                  <children>
+                     <ToolBar prefHeight="40.0" prefWidth="200.0" styleClass="toolbar" VBox.vgrow="NEVER">
+                       <items>
+                           <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Need help prioritizing your tasks?">
+                              <font>
+                                 <Font name="Arial Bold" size="12.0" />
+                              </font>
+                           </Text>
+                           <Pane prefHeight="2.0" prefWidth="400.0" />
+                           <Button fx:id="prioritize" mnemonicParsing="false" onAction="#onPrioritize" styleClass="button" text="Start Prioritizer" textAlignment="CENTER">
+                              <padding>
+                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                              </padding>
+                           </Button>
+                       </items>
+                        <padding>
+                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        </padding>
+                     </ToolBar>
+                     <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="100.0" VBox.vgrow="ALWAYS">
+                        <children>
+                           <Button fx:id="choice1" mnemonicParsing="false" onAction="#onChoice" styleClass="choice" text="Choice 1" textAlignment="CENTER" wrapText="true">
+                              <padding>
+                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                              </padding>
+                           </Button>
+                           <Button fx:id="choice2" mnemonicParsing="false" onAction="#onChoice" styleClass="choice" text="Choice 2" textAlignment="CENTER" wrapText="true">
+                              <padding>
+                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                              </padding>
+                           </Button>
+                        </children>
+                        <VBox.margin>
+                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        </VBox.margin>
+                        <padding>
+                           <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                        </padding>
+                     </HBox>
+                  </children>
+               </VBox>
+            </content>
+          </Tab>
+         <Tab text="Settings">
+            <content>
+               <VBox>
+                  <children>
+                     <HBox prefWidth="200.0" spacing="50.0">
+                        <children>
+                           <HBox spacing="5.0">
+                              <children>
+                                 <TableView fx:id="cattab" editable="true" prefWidth="100.0">
+                                   <columns>
+                                     <TableColumn fx:id="catcol" prefWidth="100.0" text="Categories" />
+                                   </columns>
+                                 </TableView>
+                                 <VBox spacing="5.0">
+                                    <children>
+                                       <Button fx:id="addCat" mnemonicParsing="false" onAction="#addNewCat">
+                                          <graphic>
+                                             <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                                <image>
+                                                   <Image url="@../../add.png" />
+                                                </image>
+                                             </ImageView>
+                                          </graphic>
+                                       </Button>
+                                       <Button fx:id="delCat" mnemonicParsing="false" onAction="#deleteCat">
+                                          <graphic>
+                                             <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                                <image>
+                                                   <Image url="@../../delete.png" />
+                                                </image>
+                                             </ImageView>
+                                          </graphic>
+                                       </Button>
+                                    </children>
+                                 </VBox>
+                              </children>
+                           </HBox>
+                        </children>
+                        <VBox.margin>
+                           <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                        </VBox.margin>
+                     </HBox>
+                  </children>
+               </VBox>
+            </content>
+         </Tab>
+      </TabPane>
+      <ToolBar fx:id="notifbar" maxHeight="30.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="30.0" styleClass="notifbar">
+         <items>
+            <ImageView fx:id="notif_typ" fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="notif_label" styleClass="message_label" />
+         </items>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </ToolBar>
+   </children>
+</VBox>
