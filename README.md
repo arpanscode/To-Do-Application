@@ -6,12 +6,12 @@ A JavaFx Application to track your To-Do list based on Excel Templates. Also hel
 
 Features:
 -----------
-Upload Excel in a pre-defined format to import your to-do items into the app.
-Download said template to populate your to-do items into the app.
-Sort your To Do Items.
-Filter to-do items based on category and progress Status.
-Add / Edit / Delete your To-do Items inside the App.
-Custom define Categories of tasks.
-Export all settings and list of to-do items in the same excel foramt.
-Re-arrange to-do items manually.
-Use the prioritizer tool to help you atomatically prioritize and arrange tasks by comparing two items at a time.
+1. Upload Excel in a pre-defined format to import your to-do items into the app.
+2. Download said template to populate your to-do items into the app.
+3. Sort your To Do Items.
+4. Filter to-do items based on category and progress Status.
+5. Add / Edit / Delete your To-do Items inside the App.
+6. Custom define Categories of tasks.
+7. Export all settings and list of to-do items in the same excel foramt.
+8. Re-arrange to-do items manually.
+9. Use the prioritizer tool to help you atomatically prioritize and arrange tasks by comparing two items at a time.
