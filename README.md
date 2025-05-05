@@ -15,3 +15,8 @@ Features:
 7. Export all settings and list of to-do items in the same excel foramt.
 8. Re-arrange to-do items manually.
 9. Use the prioritizer tool to help you atomatically prioritize and arrange tasks by comparing two items at a time.
+-----
+
+![to-do-1](https://github.com/user-attachments/assets/10245666-d2d0-479d-bafc-737ac7599646)
+
+![to-do-2](https://github.com/user-attachments/assets/1fb3fe97-8e88-4957-81ea-12625506d8b2)
